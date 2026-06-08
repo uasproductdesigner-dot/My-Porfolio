@@ -1,0 +1,196 @@
+.experience {
+  padding: 7rem 2rem;
+  background: var(--bg-primary);
+}
+.experience__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.experience__header {
+  margin-bottom: 3.5rem;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+}
+.timeline__line {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--accent-cyan), rgba(0,212,255,0.1));
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.timeline__dot-wrap {
+  position: absolute;
+  left: -2.5rem;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+.timeline__dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--text-muted);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+}
+.timeline__dot.current {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.15);
+}
+.timeline__dot-pulse {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-cyan);
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.5); opacity: 0; }
+}
+
+.timeline__card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.timeline__card:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow), var(--shadow-card);
+  transform: translateX(4px);
+}
+.timeline__card:hover .timeline__dot {
+  border-color: var(--accent-cyan);
+}
+.timeline__card-glow {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.timeline__card:hover .timeline__card-glow {
+  opacity: 1;
+}
+
+.timeline__card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.timeline__role {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+.timeline__company {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-cyan);
+  letter-spacing: 0.04em;
+}
+.timeline__location {
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+}
+
+.timeline__period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: fit-content;
+}
+.timeline__period.current-badge {
+  border-color: rgba(0, 212, 255, 0.3);
+  color: var(--accent-cyan);
+  background: rgba(0, 212, 255, 0.05);
+}
+.period-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 6px var(--accent-cyan);
+}
+
+.timeline__points {
+  list-style: none;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.timeline__points li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+.point-arrow {
+  color: var(--accent-cyan);
+  font-size: 1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.timeline__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.timeline__tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(0, 212, 255, 0.07);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  color: var(--accent-cyan);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .experience { padding: 5rem 1.5rem; }
+  .timeline { padding-left: 1.8rem; }
+  .timeline__dot-wrap { left: -1.8rem; }
+  .timeline__card { padding: 1.4rem; }
+  .timeline__card-top { flex-direction: column; gap: 0.5rem; }
+}
